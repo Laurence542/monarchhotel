@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+<!-- Page Container -->
+<div class="default-page-container">
+
+  <article class="post-card flat-card featured-post">
+    <div class="image-wrapper bg-image" style="background-image: url({% static 'images/featured_images/coding.jpeg '%});"></div>
+    <div class="post-info">
+      <div class="topic-wrapper">
+        <a href="{% url 'feature' %}" class="td-none topic-tag">featured post </a>
+        <span class="gray-1">1hr </span>
+      </div>
+      <div>
+        <h3 class="post-title">
+          <a href="{% url 'feature' %}" class="td-none">
+            Visiting the dark web is the worst mistake anyone can make
+          </a>
+        </h3>
+      </div>
+      <div class="post-preview">
+        <p>The dark web is a place that can be dangerous for users. There are plenty of scams, viruses and malware on there, so it's best not to leave yourself open to these things.</p>
+      </div>
+      <div class="author-info">
+        <div class="author">
+          <img src="{% static 'images/avatar/awa.jpeg" class="avatar' %}" alt="">
+          <a class="gray-1 link">Laurence Eddy</a>
+        </div>
+        <a href="{% url 'feature' %}" class="link">
+          Read more
+          <ion-icon name="arrow-forward-outline" class="readmore-icon"></ion-icon>
+        </a>
+      </div>
+    </div>
+  </article>
+        
+
+  <!-- Topics Section -->
+  <section class="page-section topics-container center">
+    <h2>Explore articles in various topics</h2>
+    <p>Our articles are organized into topics</p>
+    <div class="topics-pills">
+      {% for category in category_list%}
+      <a class="topic_posts.html" href="/category/{{ category.name}}">
+      {{ category.name|title }}
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  <!-- // Topics Section -->
+
+        <!-- Blog Entries Column -->
+            {% for post in post_list %}
+            <article class="post-card flat-card">
+              <div class="image-wrapper bg-image" style="background-image: url({{post.image.url}});">
+              </div>
+              <div class="post-info">
+                <div class="topic-wrapper">
+                  <span class="gray-1">{{ post.created_on}}</span>
+                </div>
+                <div>
+                  <h3 class="post-title">
+                    <a href="{% url 'post_detail' post.slug  %}" class="td-none">
+                      {{ post.title }}
+                    </a>
+                  </h3>
+                </div>
+                <div class="post-preview">
+                  <p>{{post.content|slice:":300" }}</p>
+                </div>
+                <div class="author-info">
+                  <div class="author">
+                    <p class="gray-1 link">{{ post.author }}</a>
+                  </div>
+                  <a href="{% url 'post_detail' post.slug  %}" class="link">
+                    Read more
+                    <ion-icon name="arrow-forward-outline" class="readmore-icon"></ion-icon>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            {% endfor %}        
+          </div>
+    </div>
+</div>
+{%endblock%}
