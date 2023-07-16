@@ -1,18 +1,15 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
-      <div class="card-body">
-        <img src="{{post.image.url}}" alt="" style="max-width: 75%; height: auto;">
-        <br>
-        <br>
-        <h3>{% block title %} {{ object.title }} {% endblock title %}</h3>
-        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
-        <p class="card-text ">{{ object.content | safe }}</p>
-      </div>
-    </div>
-    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
-  </div>
-</div>
+<h1>{{ room.name }}</h1>
+<p>Price: {{ room.price }}</p>
+<p>Number of Beds: {{ room.bed }}</p>
+<p>Number of Bathrooms: {{ room.bathroom }}</p>
+<p>Details: {{ room.details }}</p>
+<p>Rooms Left: {{ room.roomsleft }}</p>
+
+
+<!-- Edit button -->
+
+
 {% endblock content %}
