@@ -2,21 +2,16 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Monarch hotel</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        <meta name="google" content="notranslate"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous" />
-    
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <meta name="google" content="notranslate"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-   
-          <!-- Google Web Fonts -->
-          
+    <!-- Favicon and Google Web Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -25,104 +20,76 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-            
-        <!-- Slick Carousel -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="{% static 'css/public.css' %}">    
-    </head>
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
- <!-- Header Start -->
- <div class="container-fluid bg-dark px-0">
-  <div class="row gx-0">
-      <div class="col-lg-3 bg-dark d-none d-lg-block">
-          <a href="{% url 'home' %}" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-              <h4 class="m-0 text-danger text-uppercase">Monarch hotel</h4>
-          </a>
-      </div>
-      <div class="col-lg-9">
-         
-          <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-              <a href="{% url 'home' %}" class="navbar-brand d-block d-lg-none">
-                  <h4 class="m-0 text-danger text-uppercase">Monarch hotel</h4>
-              </a>
-              <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                  <div class="navbar-nav mr-auto py-0">
-                      <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
-                      <a href="{% url 'resturant_dinings' %}" class="nav-item nav-link">Restaurant & Dinning</a>
-                      <a href="{% url 'room' %}" class="nav-item nav-link">Rooms</a>
-                      <a href="{% url 'catering_conference' %}" class="nav-item nav-link">Catering & Conference</a>
-                      <a href="{% url 'about' %}" class="nav-item nav-link">About us</a>
-                  </div>
-                  <div class="button-container">
-                    <a href="{% url 'signup' %}">
-                      <button type="button" class="btn btn-danger">Signup</button>
-                    </a>
-                    <a href="{% url 'login' %}">
-                      <button type="button" class="btn btn-danger">Login</button>
-                      </a>
-                    </div>
-                </div>
-              </nav>
-            </div>
+    <!-- Custom Styles and JavaScript -->
+    <link rel="stylesheet" href="{% static 'js/admin.js' %}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
+        <a class="m-2 text-primary" href="{% url 'home' %}"><h3>EnviroLinkup</h3></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'donate' %}">Donate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'customer_booking' %}">Booking</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact_us' %}">Contact us</a>
+                </li>
+            </ul>
+            <a href="{% url 'login' %}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">LOGIN<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
-      </div>
+    </nav>
 
-        <style>
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
-        
-        .button-container button {
-            margin-right: 10px;
-            width: 100px;
-        }
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
 
-        </style>  
-<!-- Header End -->
-
-
-
-
-
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
-        <!-- Footer -->
-        <br><br><br><br><br>
-       <!-- Footer Start -->
-       <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
+    <!-- Footer -->
+    <br><br><br><br><br>
+    <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
         <footer style="padding: 20px; text-align: center;">
             <div style="max-width: 800px; margin: 0 auto;">
-              <p style="color: #FFFFFF; font-size: 17px;">&copy; 2023 Monarch hotel. All rights reserved.</p>
-              <ul style="list-style: none; padding: 0; margin-top: 10px;">
-                <li style="display: inline-block; margin-right: 10px;">
-                  <a href="{% url 'home' %}" style="text-decoration: none; color: #FFFFFF;">Home</a>
-                </li>
-                <li style="display: inline-block; margin-right: 10px;">
-                  <a href="{% url 'about' %}" style="text-decoration: none; color: #FFFFFF;">About</a>
-                </li>
-                <li style="display: inline-block; margin-right: 10px;">
-                  <a href="{% url 'room' %}" style="text-decoration: none; color: #FFFFFF;">Rooms</a>
-                </li>
-                <li style="display: inline-block; margin-right: 10px;">
-                  <a href="{% url 'catering_conference' %}" style="text-decoration: none; color: #FFFFFF;">Restaurant</a>
-                </li>
-              </ul>
+                <p style="color: #FFFFFF; font-size: 17px;">&copy; 2023 EnviroLinkup. All rights reserved.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 10px;">
+                    <li style="display: inline-block; margin-right: 10px;">
+                        <a href="{% url 'home' %}" style="text-decoration: none; color: #FFFFFF;">Home</a>
+                    </li>
+                    <li style="display: inline-block; margin-right: 10px;">
+                        <a href="{% url 'donate' %}" style="text-decoration: none; color: #FFFFFF;">Donate</a>
+                    </li>
+                    <li style="display: inline-block; margin-right: 10px;">
+                        <a href="{% url 'customer_booking' %}" style="text-decoration: none; color: #FFFFFF;">Booking</a>
+                    </li>
+                    <li style="display: inline-block; margin-right: 10px;">
+                        <a href="{% url 'contact_us' %}" style="text-decoration: none; color: #FFFFFF;">Contact us</a>
+                    </li>
+                </ul>
             </div>
-          </footer>
-          
-          
-        </div>
+        </footer>
+    </div>
     <!-- Footer End -->
 
-    </body>
-  </html>
+    <!-- Link to Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

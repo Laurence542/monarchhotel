@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<body>
+  <div class="container-xxl py-5">
+    <div class="container py-5">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="text-secondary text-uppercase">Donation Plans</h6>
+        <h1 class="mb-5">Choose Your Contribution</h1>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="price-item">
+            <div class="border-bottom p-4 mb-4">
+              <h5 class="text-primary mb-1">Supporter</h5>
+              <h1 class="display-5 mb-0">
+                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>10.00<small
+                  class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Donation</small>
+              </h1>
+            </div>
+            <div class="p-4 pt-0">
+                <p><i class="fa fa-check text-success me-3"></i>Thank You Email</p>
+                <p><i class="fa fa-check text-success me-3"></i>Virtual Badge</p>
+                <p><i class="fa fa-check text-success me-3"></i>Social Media Shoutout</p>
+                <p><i class="fa fa-check text-success me-3"></i>Exclusive Webinar Access</p>
+              <a class="btn-slide mt-2" href="https://donate.stripe.com/test_9AQcOK0nsgYd3Uk144"><i class="fa fa-arrow-right"></i><span>Donate Now</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+          <div class="price-item">
+            <div class="border-bottom p-4 mb-4">
+              <h5 class="text-primary mb-1">Contributor</h5>
+              <h1 class="display-5 mb-0">
+                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>25.00<small
+                  class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Donation</small>
+              </h1>
+            </div>
+            <div class="p-4 pt-0">
+                <p><i class="fa fa-check text-success me-3"></i>Thank You Email</p>
+                <p><i class="fa fa-check text-success me-3"></i>Virtual Badge</p>
+                <p><i class="fa fa-check text-success me-3"></i>Social Media Shoutout</p>
+                <p><i class="fa fa-check text-success me-3"></i>Exclusive Webinar Access</p>
+              <a class="btn-slide mt-2" href="https://buy.stripe.com/test_9AQ2a65HMgYd1Mc3cd"><i class="fa fa-arrow-right"></i><span>Donate Now</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 wow fadeInUp" data-wow-delay="0.7s">
+          <div class="price-item">
+            <div class="border-bottom p-4 mb-4">
+              <h5 class="text-primary mb-1">Patron</h5>
+              <h1 class="display-5 mb-0">
+                <small class="align-top" style="font-size: 22px; line-height: 45px;">$</small>50.00<small
+                  class="align-bottom" style="font-size: 16px; line-height: 40px;">/ Donation</small>
+              </h1>
+            </div>
+            <div class="p-4 pt-0">
+              <p><i class="fa fa-check text-success me-3"></i>Thank You Email</p>
+              <p><i class="fa fa-check text-success me-3"></i>Virtual Badge</p>
+              <p><i class="fa fa-check text-success me-3"></i>Social Media Shoutout</p>
+              <p><i class="fa fa-check text-success me-3"></i>Exclusive Webinar Access</p>
+              <a class="btn-slide mt-2" href="https://buy.stripe.com/test_14k4ie0ns4br76wcMO"><i class="fa fa-arrow-right"></i><span>Donate Now</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Add other HTML and scripts here -->
+</body>
+</html>
+
+
+
+<style>
+    /* Custom CSS for Donation Plans */
+    .container-xxl {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .row.g-4 {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .price-item {
+      flex: 1;
+      max-width: 300px;
+      margin: 10px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+    
+    .price-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .price-item h5 {
+      font-size: 20px;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    
+    .price-item h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .price-item p {
+      font-size: 16px;
+      margin: 10px 0;
+      color: #555;
+    }
+    
+    .price-item a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .price-item a:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .price-item {
+        max-width: 100%;
+      }
+    }
+    
+</style>    
+
+{%endblock%}

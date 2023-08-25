@@ -1,53 +1,81 @@
 from django.conf.urls.static import static
 from django.conf import settings
 from . import views
-from.views import about, check_out
-from.views import feature
 from.views import sign_up
 from.views import admin_dashboard
-from.views import rooms_display
-from.views import hotel_section1
-from.views import add_hotel
-from.views import base_dashboard
-from.views import base_sidebarr
-from.views import card_payment
-from.views import payment_option
-from.views import success_message
-from.views import admins_success
-from.views import user_views
-from.views import view_users
-from .views import resturant_dining
-from .views import catering_conference
-from .views import delete_hotel
+from.views import donate
 from .views import delete_information
 from.views import delete_signup
+from.views import customer_bookings
+from.views import admin_panel
+from.views import my_service
+from.views import manage_myservices
+from.views import create_projects,manage_project,ContactUs,contact_views,info_web
 from django.urls import path
+from .views import PostDeleteView
 
 
 urlpatterns = [
+     # Home page
     path('', views.PostList.as_view(), name='home'),
-    path('about/',about, name = "about"),
-    path('delete_signup/<int:signup_id>/', delete_signup, name='delete_signup'),
-    path('feature/',feature, name = "feature"),
-    path('delete_information/<int:information_id>/', delete_information, name='delete_information'),
-    path('resturant_dinings/',resturant_dining, name = "resturant_dinings"),
-    path('admin1/', admin_dashboard, name='admin1'),
-    path('catering_conference/', catering_conference, name='catering_conference'),
-    path('room/', rooms_display, name='room'),
-    path('hotel/delete/<int:hotel_id>/', delete_hotel, name='delete_hotel'),
-    path('success/', success_message, name='success'),
-    path('check/', check_out, name='check'),
-    path('card/', card_payment, name='card'),
-    path('adminn_sucess/', admins_success, name='adminn_sucess'),
-    path('userview/', view_users, name='userview'),
-    path('create/', add_hotel, name='create'),
-    path('payment_option/', payment_option, name='payment_option'),
-    path('baseadmin/', base_dashboard, name='baseadmin'),
-    path('sideadmin/', base_sidebarr, name='sideadmin'),
-    path('signup/', sign_up, name='signup'),
-    path('hotel1/', hotel_section1, name='hotel1'),
-    path('userviews/', user_views, name='userviews'),
+
+    # Contact Us
+    path('contact_us/', views.ContactUs, name='contact_us'),
+
+    # Information Page
+    path('info_web/', views.info_web, name='info_web'),
+
+    # Contact View
+    path('contact_view/', views.contact_views, name='contact_view'),
+
+    # Admin Panel
+    path('admin_panel/', views.admin_panel, name='admin_panel'),
+
+    # Post Deletion
+    path('post/<int:pk>/delete/', views.PostDeleteView.as_view(), name='post_delete'),
+
+    # Create Projects
+    path('create_projects/', views.create_projects, name='create_projects'),
+
+    # Manage Projects
+    path('manage_project/', views.manage_project, name='manage_project'),
+
+    # Manage My Services
+    path('manage_myservices/', views.manage_myservices, name='manage_myservices'),
+
+    # My Services
+    path('my_services/', views.my_service, name='my_services'),
+
+    # Customer Booking
+    path('customer_booking/', views.customer_bookings, name='customer_booking'),
+
+    # Donate Page
+    path('donate/', views.donate, name='donate'),
+
+    # Visitor Count
+    path('visitor_count/', views.visitor_count, name='visitor_count'),
+
+    # Delete Signup
+    path('delete_signup/<int:signup_id>/', views.delete_signup, name='delete_signup'),
+
+    # Delete Information
+    path('delete_information/<int:information_id>/', views.delete_information, name='delete_information'),
+
+    # Admin Dashboard
+    path('admin1/', views.admin_dashboard, name='admin1'),
+
+    # Signup Page
+    path('signup/', views.sign_up, name='signup'),
+
+    # Login Page
     path('login/', views.login_page, name='login'),
+
+    # Post Detail
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+
+    # Category Filter
     path('category/<category>/', views.CatListView.as_view(), name='category'),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+# Serve Media Files during Development
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

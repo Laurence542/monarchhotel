@@ -4,15 +4,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-
     <link rel="stylesheet" href="style.css" />
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">   
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
+  
     <div class="sidebar">
       <div class="logo-details">
         <span class="logo_name">Admin Panel</span>
@@ -66,7 +66,10 @@
                   <span class="links_name">Account</span>
                 </a>
               </li> 
-          
+         
+        
+        
+        
         <li class="log_out">
             <a href="{% url 'home' %}">
             <i class="bx bx-log-out"></i>
@@ -76,166 +79,49 @@
       </ul>
     </div>
     <section class="home-section">
-      
-      
-
+    
       <div class="home-content">
         
-
-        <style>
-            .container1{       
-                max-width: 380px;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: #fff;
-                border-radius: 20px;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            }
-    
-            h2 {
-                text-align: center;
-            }
-    
-            label {
-                display: block;
-                margin-bottom: 10px;
-            }
-    
-            input[type="email"],
-            input[type="text"],
-            input[type="password"] {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 20px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-    
-            button {
-                background-color: #4CAF50;
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 16px;
-            }
-    
-            button:hover {
-                background-color: #45a049;
-            }
-            .logo {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            .logo img {
-                width: 150px; /* Adjust the width as desired */
-                height: auto; /* Automatically adjust the height while maintaining the aspect ratio */
-            }
-        </style>
-    </head>
-    <body>
-        {% comment %} message alert {% endcomment %}
+         <!-- Page Content -->
+   <div class="page-content">
     {% if error_message %}
     <div class="alert alert-primary" role="alert">
-        {{ error_message }}
+    {{ error_message }}
     </div>
-   {% endif %}
-
-{% comment %} end of message alert    {% endcomment %}
-        <br>
-        <div class="container1">
-            
-            <h2>Signup</h2>
-            <form method="POST" action="{% url 'signup' %}">
-                {% csrf_token %}
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-                
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br>
-    
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br>
-
-                <label for="password">Confirm password:</label>
-                <input type="password" id="confirm_password" name="confirm_password" required><br>
-    
-                <button type="submit" class="btn btn-danger">Sign Up</button>
-                
-                
-            </form>
-            <br>
-            
+    {% endif %}
+    <div class="admin-container">
+      <form method="POST" action="{% url 'create_projects' %}" class="admin-form md-box" enctype="multipart/form-data">
+          <br>
+        <h1 class="center form-title">Create Project</h1>  
+          {% csrf_token %}
+          <div class="input-group">
+              <label for="name">Title:</label>
+              <input type="text" name="title" id="title" class="input-control" class="input-control" required>
+          </div>
+       
+          <input type="hidden" name="slug" id="slug" class="input-control" class="input-control" required>
+          <div class="input-group">
+            <label for="price">Content:</label>
+            <input type="text" name="content" id="content" class="input-control" class="input-control" required>
         </div>
-    </body>
-    </html>
-
-
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-}
-
-input[type="text"],
-textarea,
-input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-
-
-
-</style>    
+        <div class="image-wrapper">
+            <label for="image" class="image-label">
+                <ion-icon name="image-outline" class="image-outline"></ion-icon>
+                Choose Image
+            </label>
+            <input type="file" name="image" id="image" class="hide image-input" required>
+        </div>
+        
+        <br><br>
+          <div class="input-group">
+              <button type="submit" class="btn primary-btn big-btn">Save</button>
+          </div>
+      </form>
+    </div>
+  </div>
   <!-- // Page Content -->
+    
+    
           
         </div>
 
@@ -249,8 +135,22 @@ button[type="submit"]:hover {
         </div>
       </div>
     </section>
-
     <script>
+        // Get the title input element
+        const titleInput = document.getElementById('title');
+        
+        // Get the slug input element
+        const slugInput = document.getElementById('slug');
+        
+        // Listen for changes in the title input
+        titleInput.addEventListener('input', () => {
+            // Generate the slug based on the title
+            const slugValue = titleInput.value.toLowerCase().replace(/\s+/g, '-');
+            slugInput.value = slugValue;
+        });
+    </script>
+    <script>
+        
       let sidebar = document.querySelector(".sidebar");
       let sidebarBtn = document.querySelector(".sidebarBtn");
       sidebarBtn.onclick = function () {
@@ -291,6 +191,14 @@ button[type="submit"]:hover {
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  
+
+
+
 </body>
 
 </html>
+
+  
+   
